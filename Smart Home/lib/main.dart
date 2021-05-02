@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-//import 'package:smart_home_ui/homescreen.dart';
-import 'package:smart_home_ui/wifi%20page.dart';
+import 'package:smart_home_ui/homescreen.dart';
+
 
 void main() {
   runApp(
