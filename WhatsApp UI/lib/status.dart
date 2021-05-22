@@ -134,10 +134,7 @@ class _StatusScreenState extends State<StatusScreen> {
                 Padding(
                   padding: EdgeInsets.all(8),
                   child: GestureDetector(
-                    onTap: () {
-                      Navigator.pop(context);
-                      Navigator.pushNamed(context, CallScreen.id);
-                    },
+                    onTap: () {},
                     child: Text(
                       'CALLS',
                       style: TextStyle(
