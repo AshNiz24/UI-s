@@ -1,10 +1,15 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'status.dart';
 
 void main() {
   runApp(
     MaterialApp(
-      home: ChatScreen(),
+      initialRoute: ChatScreen.id,
+      routes: {
+        StatusScreen.id: (context) => StatusScreen(),
+        ChatScreen.id: (context) => ChatScreen(),
+        },
       debugShowCheckedModeBanner: false,
     ),
   );
@@ -37,11 +42,18 @@ var chat = {
   8: ['Abby Gale', 'images/plant-unsplash.jpg', 'Party !!!', '04:30 pm'],
 };
 
-class ChatScreen extends StatelessWidget {
+class ChatScreen extends StatefulWidget {
+  static const String id = "chatscreen";
+  @override
+  _ChatScreenState createState() => _ChatScreenState();
+}
+
+class _ChatScreenState extends State<ChatScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         backgroundColor: Color(0xff075e54),
         title: Text(
           'WhatsApp',
@@ -82,11 +94,14 @@ class ChatScreen extends StatelessWidget {
               children: [
                 Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: Text(
-                    'CHATS',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 18,
+                  child: GestureDetector(
+                    onTap: () {},
+                    child: Text(
+                      'CHATS',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 18,
+                      ),
                     ),
                   ),
                 ),
@@ -99,13 +114,18 @@ class ChatScreen extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Text(
-                    'STATUS',
-                    style: TextStyle(
-                      color: Colors.white.withOpacity(0.5),
-                      fontSize: 18,
+                GestureDetector(
+                  onTap: () {
+                    Navigator.pushNamed(context, StatusScreen.id);
+                  },
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text(
+                      'STATUS',
+                      style: TextStyle(
+                        color: Colors.white.withOpacity(0.5),
+                        fontSize: 18,
+                      ),
                     ),
                   ),
                 ),
@@ -118,13 +138,16 @@ class ChatScreen extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Text(
-                    'CALLS',
-                    style: TextStyle(
-                      color: Colors.white.withOpacity(0.5),
-                      fontSize: 18,
+                GestureDetector(
+                  onTap: () {},
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text(
+                      'CALLS',
+                      style: TextStyle(
+                        color: Colors.white.withOpacity(0.5),
+                        fontSize: 18,
+                      ),
                     ),
                   ),
                 ),
@@ -134,6 +157,19 @@ class ChatScreen extends StatelessWidget {
               width: 20,
             )
           ],
+        ),
+      ),
+      floatingActionButton: Container(
+        width: 70,
+        height: 70,
+        child: FittedBox(
+          child: FloatingActionButton(
+            backgroundColor: Color(0xff25D366),
+            onPressed: () {},
+            child: Icon(
+              Icons.message,
+            ),
+          ),
         ),
       ),
       body: ListView.builder(
@@ -160,7 +196,14 @@ class ChatTiles extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {},
+      onTap: () {
+        Navigator.push(context, MaterialPageRoute(builder: (context) {
+          return ChatRoom(
+            name: name,
+            img: img,
+          );
+        }));
+      },
       child: Column(
         children: [
           Row(
