@@ -11,4 +11,4 @@ Some of the few designs I made
 ### WhatsApp UI
 <br>
 
-<img src="WhatsApp UI/screenshots/Chat WA.png" width="200" height=auto>   <img src="WhatsApp UI/screenshots/Status WA.png" width="200" height=auto> <img src="WhatsApp UI/screenshots/Call Log WA.png" width="200" height=auto>  <img src="WhatsApp UI/screenshots/Chat Room WA.png" width="200" heght=auto>
+<img src="WhatsApp UI/screenshots/Chat WA.png" width="200" height=auto>   <img src="WhatsApp UI/screenshots/Status WA.png" width="200" height=auto> <img src="WhatsApp UI/screenshots/Call Log WA.png" width="200" height=auto>  <br><img src="WhatsApp UI/screenshots/Chat Room WA.png" width="200" heght=auto>
