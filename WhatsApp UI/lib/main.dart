@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:whatsapp_clone/calls.dart';
+import 'package:whatsapp_clone/chatRoom.dart';
 import 'status.dart';
 
 void main() {
@@ -9,7 +11,8 @@ void main() {
       routes: {
         StatusScreen.id: (context) => StatusScreen(),
         ChatScreen.id: (context) => ChatScreen(),
-        },
+        CallScreen.id: (context) => CallScreen(),
+      },
       debugShowCheckedModeBanner: false,
     ),
   );
@@ -82,80 +85,94 @@ class _ChatScreenState extends State<ChatScreen> {
         bottom: AppBar(
           backgroundColor: Color(0xff075e54),
           automaticallyImplyLeading: false,
-          leading: Icon(
-            Icons.camera_alt_rounded,
-            color: Colors.white.withOpacity(0.5),
-            size: 28,
+          leading: Container(
+            child: Icon(
+              Icons.camera_alt_rounded,
+              color: Colors.white.withOpacity(0.5),
+              size: 28,
+            ),
           ),
           actions: [
-            Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: GestureDetector(
-                    onTap: () {},
-                    child: Text(
-                      'CHATS',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 18,
-                      ),
-                    ),
+            Container(
+              decoration: BoxDecoration(
+                border: Border(
+                  bottom: BorderSide(
+                    color: Colors.white,
+                    width: 5,
                   ),
                 ),
-              ],
-            ),
-            SizedBox(
-              width: 40,
-            ),
-            Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                GestureDetector(
-                  onTap: () {
-                    Navigator.pushNamed(context, StatusScreen.id);
-                  },
-                  child: Padding(
+              ),
+              width: 115,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Padding(
                     padding: const EdgeInsets.all(8.0),
-                    child: Text(
-                      'STATUS',
-                      style: TextStyle(
-                        color: Colors.white.withOpacity(0.5),
-                        fontSize: 18,
+                    child: GestureDetector(
+                      onTap: () {},
+                      child: Center(
+                        child: Text(
+                          'CHATS',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 18,
+                          ),
+                        ),
                       ),
                     ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
-            SizedBox(
-              width: 40,
-            ),
-            Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                GestureDetector(
-                  onTap: () {},
-                  child: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Text(
-                      'CALLS',
-                      style: TextStyle(
-                        color: Colors.white.withOpacity(0.5),
-                        fontSize: 18,
+            Container(
+              width: 115,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.pushNamed(context, StatusScreen.id);
+                    },
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text(
+                        'STATUS',
+                        style: TextStyle(
+                          color: Colors.white.withOpacity(0.5),
+                          fontSize: 18,
+                        ),
                       ),
                     ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
-            SizedBox(
-              width: 20,
-            )
+            Container(
+              width: 115,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.pushNamed(context, CallScreen.id);
+                    },
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text(
+                        'CALLS',
+                        style: TextStyle(
+                          color: Colors.white.withOpacity(0.5),
+                          fontSize: 18,
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
           ],
         ),
       ),
