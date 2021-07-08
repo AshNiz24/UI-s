@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_app_wa_tut/status.dart';
 
 class ChatScreen extends StatefulWidget {
   static const String id = 'Chatscreen';
@@ -127,7 +128,9 @@ class _ChatScreenState extends State<ChatScreen> {
               ),
             ),
             GestureDetector(
-              onTap: () {},
+              onTap: () {
+                Navigator.pushNamed(context, StatusScreen.id);
+              },
               child: Container(
                 width: 115,
                 child: Column(
