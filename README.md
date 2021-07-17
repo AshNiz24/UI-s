@@ -16,5 +16,6 @@ Some of the few designs I made
 <br>
 ### YouTube UI
 <br>
-<img src="YouTube UI/screenshots/YouTube Shorts UI.png" width="100" height=auto><img src="YouTube UI/screenshots/YouTube Shorts UI.png" width="200" height=auto>
+
+<img src="YouTube UI/screenshots/YT home UI.png" width="200" height=auto> <img src="YouTube UI/screenshots/YouTube Shorts UI.png" width="200" height=auto>
 <br>
