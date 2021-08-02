@@ -1,10 +1,9 @@
-import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:youtube_clone/yt_data.dart';
 
 class ShortsScreen extends StatefulWidget {
   static const String id = 'ShortsScreen';
-
   @override
   _ShortsScreenState createState() => _ShortsScreenState();
 }
@@ -21,7 +20,7 @@ class _ShortsScreenState extends State<ShortsScreen> {
             itemBuilder: (context, index) {
               return ShortsList(
                 name: ytData.shortsList.values.elementAt(index).elementAt(0),
-                profilepic:
+                profilePic:
                     ytData.shortsList.values.elementAt(index).elementAt(1),
                 vid: ytData.shortsList.values.elementAt(index).elementAt(2),
                 caption: ytData.shortsList.values.elementAt(index).elementAt(3),
@@ -37,18 +36,19 @@ class _ShortsScreenState extends State<ShortsScreen> {
 
 class ShortsList extends StatefulWidget {
   final String name;
-  final String profilepic;
+  final String profilePic;
   final String vid;
   final String caption;
   final String likes;
   final String comments;
   ShortsList(
-      {this.vid,
-      this.likes,
-      this.comments,
+      {this.name,
       this.caption,
-      this.name,
-      this.profilepic});
+      this.comments,
+      this.likes,
+      this.vid,
+      this.profilePic});
+
   @override
   _ShortsListState createState() => _ShortsListState();
 }
@@ -56,25 +56,24 @@ class ShortsList extends StatefulWidget {
 class _ShortsListState extends State<ShortsList> {
   bool isLike = false;
   bool isDislike = false;
+
   @override
   Widget build(BuildContext context) {
+    double w = MediaQuery.of(context).size.width;
+    double h = MediaQuery.of(context).size.height;
+
     return Stack(
       children: [
         Container(
-          width: MediaQuery.of(context).size.width,
-          height: MediaQuery.of(context).size.height,
+          width: w,
+          height: h,
           child: Image.asset(
             widget.vid,
             fit: BoxFit.cover,
           ),
         ),
         Padding(
-          padding: const EdgeInsets.only(
-            top: 25.0,
-            left: 15.0,
-            right: 15.0,
-            bottom: 8.0,
-          ),
+          padding: EdgeInsets.only(top: 25.0, left: 15.0, right: 15, bottom: 8),
           child: Column(
             children: [
               Row(
@@ -94,11 +93,11 @@ class _ShortsListState extends State<ShortsList> {
                     Icons.camera_alt_outlined,
                     color: Colors.white,
                     size: 32,
-                  ),
+                  )
                 ],
               ),
               SizedBox(
-                height: MediaQuery.of(context).size.height * 0.275,
+                height: h * 0.275,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
@@ -113,7 +112,7 @@ class _ShortsListState extends State<ShortsList> {
                         ),
                       ],
                     ),
-                  ),
+                  )
                 ],
               ),
               SizedBox(
@@ -149,7 +148,7 @@ class _ShortsListState extends State<ShortsList> {
                         ],
                       ),
                     ),
-                  ),
+                  )
                 ],
               ),
               SizedBox(
@@ -181,11 +180,11 @@ class _ShortsListState extends State<ShortsList> {
                               color: Colors.white,
                               fontSize: 16,
                             ),
-                          )
+                          ),
                         ],
                       ),
                     ),
-                  ),
+                  )
                 ],
               ),
               SizedBox(
@@ -194,27 +193,30 @@ class _ShortsListState extends State<ShortsList> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  Container(
-                    child: Column(
-                      children: [
-                        Icon(
-                          Icons.message_rounded,
-                          color: Colors.white,
-                          size: 30,
-                        ),
-                        SizedBox(
-                          height: 10,
-                        ),
-                        Text(
-                          widget.comments,
-                          style: TextStyle(
+                  GestureDetector(
+                    onTap: () {},
+                    child: Container(
+                      child: Column(
+                        children: [
+                          Icon(
+                            Icons.message_rounded,
                             color: Colors.white,
-                            fontSize: 16,
+                            size: 30,
                           ),
-                        )
-                      ],
+                          SizedBox(
+                            height: 10,
+                          ),
+                          Text(
+                            widget.comments,
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 16,
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
-                  ),
+                  )
                 ],
               ),
               SizedBox(
@@ -223,25 +225,28 @@ class _ShortsListState extends State<ShortsList> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  Container(
-                    child: Column(
-                      children: [
-                        Icon(
-                          CupertinoIcons.arrowshape_turn_up_right_fill,
-                          color: Colors.white,
-                          size: 30,
-                        ),
-                        SizedBox(
-                          height: 10,
-                        ),
-                        Text(
-                          'Share',
-                          style: TextStyle(
+                  GestureDetector(
+                    onTap: () {},
+                    child: Container(
+                      child: Column(
+                        children: [
+                          Icon(
+                            CupertinoIcons.arrowshape_turn_up_right_fill,
                             color: Colors.white,
-                            fontSize: 16,
+                            size: 30,
                           ),
-                        )
-                      ],
+                          SizedBox(
+                            height: 10,
+                          ),
+                          Text(
+                            'Share',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 16,
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 ],
@@ -253,7 +258,7 @@ class _ShortsListState extends State<ShortsList> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Container(
-                    width: MediaQuery.of(context).size.width * 0.6,
+                    width: w * 0.6,
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -274,7 +279,7 @@ class _ShortsListState extends State<ShortsList> {
                               backgroundColor: Colors.white,
                               child: CircleAvatar(
                                 radius: 12.5,
-                                backgroundImage: AssetImage(widget.profilepic),
+                                backgroundImage: AssetImage(widget.profilePic),
                               ),
                             ),
                             SizedBox(
@@ -286,9 +291,9 @@ class _ShortsListState extends State<ShortsList> {
                                 color: Colors.white,
                                 fontSize: 16,
                               ),
-                            )
+                            ),
                           ],
-                        )
+                        ),
                       ],
                     ),
                   ),
@@ -300,14 +305,14 @@ class _ShortsListState extends State<ShortsList> {
                       children: [
                         Center(
                           child: Container(
-                            width: 32,
                             height: 32,
+                            width: 32,
                             child: Image.asset(
                               'images/music_bar.gif',
                               fit: BoxFit.cover,
                             ),
                           ),
-                        ),
+                        )
                       ],
                     ),
                   )
@@ -315,7 +320,7 @@ class _ShortsListState extends State<ShortsList> {
               )
             ],
           ),
-        )
+        ),
       ],
     );
   }
